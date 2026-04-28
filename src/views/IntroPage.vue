@@ -40,6 +40,7 @@ body {
   padding: 40px;
   border: 5px solid #8B5E3C;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .profileImage {
