@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("/fonts/fonts.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fef8e6;
+  font-family: "MyFont", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit; /* ⭐ 핵심 */
+}
