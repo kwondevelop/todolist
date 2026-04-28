@@ -5,7 +5,7 @@ import LoginPage from "./LoginPage.vue";
 <template>
   <div class="container">
     <div class="intro">
-      <div class="logo-img"></div>
+      <div class="main-logo-img"></div>
       <div class="intro-title">
         <div class="title">
           <h1>TODO LIST</h1>
@@ -32,16 +32,6 @@ import LoginPage from "./LoginPage.vue";
   gap: 30px;
 }
 
-.logo-img {
-  width: 200px;
-  height: 200px;
-  margin: auto;
-  background-image: url("/img/logo.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .intro-title {
   display: flex;
   flex-direction: column;
@@ -50,7 +40,7 @@ import LoginPage from "./LoginPage.vue";
 
 .title {
   font-size: 30px;
-  color: #4b2e1c;
+  color: var(--text-color);
 }
 
 .sub-title {
