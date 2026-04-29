@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <div class="page">
@@ -11,10 +10,10 @@
       </div>
       <div class="todo-item">
         <div class="left">
-          <input type="checkbox"/>
+          <input type="checkbox" />
           <div>
             <p>Vue 3 학습하기</p>
-            <p>2025-04-25</p>
+            <small>2025-04-25</small>
           </div>
         </div>
         <div>
@@ -22,11 +21,12 @@
           <button>삭제</button>
         </div>
       </div>
+      <div class="todo-item">
         <div class="left">
-          <input type="checkbox"/>
+          <input type="checkbox" />
           <div>
             <p>프로젝트 구조 설계</p>
-            <p>2025-04-26</p>
+            <small>2025-04-26</small>
           </div>
         </div>
         <div>
@@ -35,11 +35,12 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
 .page {
-  background: #FFF8E7;
+  background: #fff8e7;
   padding: 40px 20px;
 }
 
@@ -51,10 +52,16 @@ h1 {
 .container {
   width: 600px;
   margin: 0 auto;
-  background: #FFF8E7;
+  background: #fff8e7;
   padding: 30px;
   border-radius: 10px;
-  border: 5px solid #C89B5A;
+  border: 5px solid #c89b5a;
+}
+
+::placeholder {
+  color: #aaaaaa;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .todo-input {
@@ -69,22 +76,43 @@ h1 {
 }
 
 .todo-input button {
-  background: #FFF8E7;
+  background: #fff8e7;
   color: #000000;
   font-size: 20px;
   font-weight: bold;
-  border: 5px solid #C89B5A;
+  border: 5px solid #c89b5a;
   padding: 15px 20px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .todo-item {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   padding: 10px;
-  border: 5px solid #C89B5A;
+  border: 5px solid #c89b5a;
   margin-bottom: 15px;
   font-weight: bold;
+  border-radius: 10px;
+  font-size: large;
+  align-items: center;
+}
+
+small {
+  color: #8b8b8b;
+}
+
+.todo-item button {
+  background: #fff8e7;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  border: 5px solid #c89b5a;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 5px;
 }
 
 .left {
@@ -92,19 +120,10 @@ h1 {
   gap: 10px;
 }
 
-.todo-item button {
-  background: #FFF8E7;
-  color: #000000;
-  font-size: 16px;
-  font-weight: bold;
-  border: 1px solid #C89B5A;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-::placeholder {
-  color: #aaaaaa;
-  font-size: 20px;
-  font-weight: bold;
+.left input[type="checkbox"]:checked + div p,
+.left input[type="checkbox"]:checked + div small {
+  text-decoration: line-through;
+  color: #8b8b8b;
+  opacity: 0.8;
 }
 </style>
