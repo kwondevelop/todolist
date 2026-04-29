@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import IntroPage from "../views/IntroPage.vue";
 import SignupPage from "../views/SignupPage.vue";
 import TodoPage from "../views/TodoPage.vue";
+import ProfilePage from "../views/ProfilePage.vue";
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: "/todo",
     component: TodoPage,
+  },
+  {
+    path: "/profile",
+    component: ProfilePage,
   },
 ];
 
