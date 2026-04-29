@@ -1,9 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRouter } from "vue-router";
 
 const email = ref("");
 const pw = ref("");
 const pwChk = ref("");
+const isMatch = ref(true);
+
+const router = useRouter();
 
 const handleSignup = () => {
   if (!email.value.trim() || !pw.value.trim() || !pwChk.value.trim()) {
@@ -14,11 +18,28 @@ const handleSignup = () => {
     alert("이메일을 정확히 입력해 주세요!");
     return;
   }
+  if (!isMatch.value) {
+    alert("비밀번호가 일치하지 않습니다!");
+    return;
+  }
+
+  alert("회원가입이 완료되었습니다!");
+  router.push("/intro");
 };
 
 const emailValChk = (email) => {
   return email.includes("@") && email.includes(".");
 };
+
+watch([pw, pwChk], ([newPw, newPwChk]) => {
+  if (!newPwChk) {
+    isMatch.value = true;
+  } else {
+    isMatch.value = newPw === newPwChk;
+  }
+});
+
+// 이메일 중복 확인 나중에 추가
 </script>
 
 <template>
@@ -45,6 +66,9 @@ const emailValChk = (email) => {
           <div class="pw-chk-form form">
             <label for="pw-chk">비밀번호 확인 : </label>
             <input type="password" name="pw-chk" id="pw-chk" v-model="pwChk" />
+          </div>
+          <div class="pw-chk-text" v-if="!isMatch">
+            비밀번호가 일치하지 않습니다!
           </div>
         </div>
 
@@ -155,5 +179,10 @@ const emailValChk = (email) => {
   border: none;
   color: #fff;
   cursor: pointer;
+}
+
+.pw-chk-text {
+  text-align: right;
+  color: #ff0000;
 }
 </style>
